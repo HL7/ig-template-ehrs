@@ -1,0 +1,49 @@
+<div>
+    <span id="description"><b>Statement <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b> {{Requirements.description}}</span>
+
+    {% if Requirements.purpose.exists() %}
+    <span id="purpose"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> {{Requirements.purpose}}</span>
+    {% endif %}
+
+    {% if Requirements.extension.exists() %}
+    <span id="actors"><b>Actors:</b><br/> {{Requirements.extension.value}}</span>
+    {% endif %}
+
+    {% if Requirements.statement.exists() %}
+    <span id="requirements"><b>Criteria <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b></span>
+    {% endif %}
+    <table id="statements" class="grid dict">
+        {% for statement in Requirements.statement %}
+        <tr>
+            <td style="padding-left: 4px;">
+                {% if statement.label.exists() %}
+                <span>{{statement.label}}</span>
+                {% endif %}
+            </td>
+            <td style="padding-left: 4px;">
+                {% if statement.extension.value %}
+                <i>dependent</i>
+                {% endif %}
+                {% if statement.conditionality %}
+                <i>conditional</i>
+                {% endif %}
+                {% if statement.conformance.exists() %}
+                <span>{{statement.conformance}}</span>
+                {% endif %}
+            </td>
+            <td style="padding-left: 4px;" class="requirement">
+                {% if statement.requirement.exists() %}
+                <span>{{statement.requirement}}</span>
+                {% endif %}
+                {% if statement.satisfiedBy.exists() %}
+                Satisfied by:<ol>
+                {% for uri in statement.satisfiedBy %}
+                    <li>{{uri}}</li>
+                {% endfor %}
+                </ol>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

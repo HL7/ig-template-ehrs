@@ -1,0 +1,16 @@
+{
+    "package-id" : "hl7.ehrs.template",
+    "title" : "Template used for HL7-defined EHR-S product family implementation guides.",
+    "canonical" : "http://fhir.org/templates/hl7.ehrs.template",
+    "introduction" : "Template used for HL7-defined EHR-S product family implementation guides.",
+    "list" : [
+      {
+        "version" : "0.2.0",
+        "date" : "2025-02-17",
+        "desc" : "First Release",
+        "path" : "http://fhir.org/templates/hl7.ehrs.template/0.2.0",
+        "status" : "release",
+        "sequence" : "Publications"
+      }
+    ]
+  }

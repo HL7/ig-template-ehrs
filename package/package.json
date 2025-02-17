@@ -1,0 +1,11 @@
+{
+    "name": "hl7.ehrs.template",
+    "version": "0.2.0",
+    "type": "fhir.template",
+    "license": "CC0-1.0",
+    "description": "Template used for HL7-defined EHR-S product family implementation guides.",
+    "base": "hl7.base.template",
+    "dependencies": {
+        "hl7.base.template": "current"
+    }
+}
