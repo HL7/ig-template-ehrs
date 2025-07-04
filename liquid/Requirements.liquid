@@ -5,9 +5,11 @@
     <span id="purpose"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> {{Requirements.purpose}}</span>
     {% endif %}
 
-    {% if Requirements.extension.exists() %}
-    <span id="actors"><b>Actors:</b><br/> {{Requirements.extension.value}}</span>
+    {% for ext in Requirements.extension %}
+    {% if ext.url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-actors' %}
+    <span id="actors"><b>Actors:</b> <div><p>{{ext.value}}</p></div></span>
     {% endif %}
+    {% endfor %}
 
     {% if Requirements.statement.exists() %}
     <span id="requirements"><b>Criteria <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b></span>
