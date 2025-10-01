@@ -4,8 +4,9 @@
   "license" : "CC0-1.0",
   "description" : "Template used for HL7-defined EHR-S product family implementation guides.",
   "base" : "hl7.base.template",
+  "canonical" : "http://github.com/HL7/ig-template-ehrs",
   "dependencies" : {
     "hl7.base.template" : "current"
   },
-  "version" : "0.3.0"
+  "version" : "1.0.0"
 }
