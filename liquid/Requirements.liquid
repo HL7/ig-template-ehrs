@@ -1,25 +1,25 @@
 <div>
-    <span id="description"><b>Statement <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b> {{Requirements.description}}</span>
+    <div id="description"><b>Statement <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b> {{Requirements.description}}</div>
 
     {% if Requirements.purpose.exists() %}
-    <span id="purpose"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> {{Requirements.purpose}}</span>
+    <div id="purpose"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> {{Requirements.purpose}}</div>
     {% endif %}
 
     {% for ext in Requirements.extension %}
     {% if ext.url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-actors' %}
-    <span id="actors"><b>Actors:</b> <div><p>{{ext.value}}</p></div></span>
+    <div id="actors"><b>Actors:</b> <div><p>{{ext.value}}</p></div></div>
     {% endif %}
     {% endfor %}
 
     {% if Requirements.statement.exists() %}
-    <span id="requirements"><b>Criteria <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b></span>
+    <div id="requirements"><b>Criteria <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b></div>
     {% endif %}
     <table id="statements" class="grid dict">
         {% for statement in Requirements.statement %}
         <tr>
             <td style="padding-left: 4px;">
                 {% if statement.label.exists() %}
-                <span>{{statement.label}}</span>
+                <div>{{statement.label}}</div>
                 {% endif %}
             </td>
             <td style="padding-left: 4px;">
@@ -30,12 +30,12 @@
                 <i>conditional</i>
                 {% endif %}
                 {% if statement.conformance.exists() %}
-                <span>{{statement.conformance}}</span>
+                <div>{{statement.conformance}}</div>
                 {% endif %}
             </td>
             <td style="padding-left: 4px;" class="requirement">
                 {% if statement.requirement.exists() %}
-                <span>{{statement.requirement}}</span>
+                <div>{{statement.requirement}}</div>
                 {% endif %}
                 {% if statement.satisfiedBy.exists() %}
                 Satisfied by:<ol>

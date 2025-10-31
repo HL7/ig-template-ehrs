@@ -5,10 +5,10 @@
   "introduction" : "Template used for HL7-defined EHR-S product family implementation guides.",
   "list" : [
     {
-      "version" : "0.2.1",
-      "date" : "2025-05-22",
-      "desc" : "First Release",
-      "path" : "http://fhir.org/templates/hl7.ehrs.template/0.2.1",
+      "version" : "0.2.2",
+      "date" : "2025-10-31",
+      "desc" : "Fixed illegal div/span html",
+      "path" : "http://fhir.org/templates/hl7.ehrs.template/0.2.2",
       "status" : "release",
       "sequence" : "Publications",
       "current" : true
