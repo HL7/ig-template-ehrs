@@ -1,6 +1,7 @@
 <div>
+    <!-- description is in new base template
     <div id="description"><b>Statement <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b> {{Requirements.description}}</div>
-
+    -->
     {% if Requirements.purpose.exists() %}
     <div id="purpose"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> {{Requirements.purpose}}</div>
     {% endif %}
@@ -16,15 +17,28 @@
     {% endif %}
     <table id="statements" class="grid dict">
         {% for statement in Requirements.statement %}
-        <tr>
+        {% assign style = '' %}
+        {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').exists() %}
+            {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').first().value = 'C' %}
+                {% assign style = 'background-color: #dafbe1;' %}
+            {% endif %}
+        {% endif %}
+        <tr style="{{ style }}">
             <td style="padding-left: 4px;">
                 {% if statement.label.exists() %}
                 <div>{{statement.label}}</div>
                 {% endif %}
+                {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').exists() %}
+                    {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').first().value = 'C' %}
+                        <a href="https://build.fhir.org/ig/HL7/ehrsfm-ig/Requirements-EHRSFMR2-{{statement.label}}.html">original</a>
+                    {% endif %}
+                {% endif %}
             </td>
             <td style="padding-left: 4px;">
-                {% if statement.extension.value %}
-                <i>dependent</i>
+                {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-dependent').exists() %}
+                    {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-dependent').first().value %}
+                    <i>dependent</i>
+                    {% endif %}
                 {% endif %}
                 {% if statement.conditionality %}
                 <i>conditional</i>
