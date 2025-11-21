@@ -1,4 +1,14 @@
 <div>
+    <!-- Render ChangeInfo if Changed -->
+    {% if Requirements.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').exists() %}
+        {% if Requirements.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').first().value = 'C' %}
+            <table class="grid dict"><tr style="background-color: #dafbe1;">
+                <td>PROFILED</td>
+                <!--<td><a href="https://build.fhir.org/ig/HL7/ehrsfm-ig/Requirements-EHRSFMR2-{{Requirements.derivedFrom}}.html">original</a></td>-->
+            </tr></table>
+        {% endif %}        
+    {% endif %}
+
     <!-- description is in new base template
     <div id="description"><b>Statement <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b> {{Requirements.description}}</div>
     -->
@@ -30,7 +40,7 @@
                 {% endif %}
                 {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').exists() %}
                     {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').first().value = 'C' %}
-                        <a href="https://build.fhir.org/ig/HL7/ehrsfm-ig/Requirements-EHRSFMR2-{{statement.label}}.html">original</a>
+                        <a href="https://build.fhir.org/ig/HL7/ehrsfm-ig/Requirements-EHRSFMR2-{{statement.derivedFrom}}.html">original</a>
                     {% endif %}
                 {% endif %}
             </td>
