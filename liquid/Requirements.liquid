@@ -31,6 +31,9 @@
                 {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').first().value = 'C' %}
                     <span style="border-radius: 999px;margin: 2px 2px;font-size: 10px;display: inline-block;padding: 3px 5px;letter-spacing: 0.5px;line-height: 1;white-space: nowrap;background-color: #e0f2ff;color: #0070c9;border: 1px solid #a3d9ff;">profiled</span>
                 {% endif %}
+                {% if statement.extension.where(url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-change-info').first().value = 'N' %}
+                    <span style="border-radius: 999px;margin: 2px 2px;font-size: 10px;display: inline-block;padding: 3px 5px;letter-spacing: 0.5px;line-height: 1;white-space: nowrap;background-color: #e0f2ff;color: #0070c9;border: 1px solid #a3d9ff;">new</span>
+                {% endif %}
             {% endif %}
             </td>
             <td style="padding-left: 4px;" class="requirement">
