@@ -5,7 +5,7 @@
         {% endif %}     
     {% endif %}
     {% if Requirements.purpose.exists() %}
-    <div id="description"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> {{Requirements.purpose}}</div>
+    <div id="description"><b>Description <a href="https://hl7.org/fhir/versions.html#std-process" title="Informative Content" class="informative-flag">I</a>:</b> <p>{{Requirements.purpose}}</p></div>
     {% endif %}
     {% for ext in Requirements.extension %}{% if ext.url = 'http://hl7.org/ehrs/uv/ehrsfmr2/StructureDefinition/requirements-actors' %}
     <div id="actors"><b>Actors:</b> <div><p>{{ext.value}}</p></div></div>
