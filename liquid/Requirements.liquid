@@ -50,7 +50,7 @@
             {% endif %}
             </td>
             <td style="padding-left: 4px;" class="requirement">
-                {% if statement.requirement.exists() %}{{ statement.requirement }}{% endif %}
+                {% if statement.requirement.exists() %}{{ statement.requirement || markdownify }}{% endif %}
                 {% if statement.satisfiedBy.exists() %}Satisfied by:<ol>
                 {% for uri in statement.satisfiedBy %}<li>{{ uri }}</li>{% endfor %}
                 </ol>{% endif %}
