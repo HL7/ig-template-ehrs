@@ -12,7 +12,6 @@
     {% endif %}{% endfor %}
     {% if Requirements.statement.exists() %}
     <div id="requirements"><b>Criteria <a href="https://hl7.org/fhir/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>:</b></div>
-    {% endif %}
     <table id="statements" class="grid dict">
         {% for statement in Requirements.statement %}
         <tr>
@@ -58,4 +57,7 @@
         </tr>
         {% endfor %}
     </table>
+    {% else %}
+    <i>Sections and Headers have no criteria.</i>
+    {% endif %}
 </div>
